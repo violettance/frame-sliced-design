@@ -15,6 +15,7 @@ function levelDb(x, t) {
 }
 
 export async function cut(edit, { editDir, outDir, width = 1080, height = 1920 }) {
+  outDir = path.resolve(outDir);
   const tmp = path.join(outDir, 'tmp'); mkdirSync(tmp, { recursive: true });
   const srcs = Object.fromEntries(Object.entries(edit.sources).map(([k, v]) => [k, path.resolve(editDir, v)]));
   const mono = {};
